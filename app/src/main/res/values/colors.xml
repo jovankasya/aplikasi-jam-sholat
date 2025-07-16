@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Warna dasar -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Warna tema utama -->
+    <color name="primary">#388E3C</color> <!-- Hijau Masjid -->
+    <color name="primaryVariant">#2E7D32</color>
+    <color name="secondary">#FF9800</color> <!-- Oranye lembut -->
+    <color name="secondaryVariant">#F57C00</color>
+
+    <!-- Warna latar dan teks -->
+    <color name="background">#F4F8F4</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="onSecondary">#FFFFFF</color>
+    <color name="onBackground">#000000</color>
+    <color name="onSurface">#000000</color>
+
+    <!-- Warna tambahan -->
+    <color name="light_green">#C8E6C9</color>
+    <color name="gray_light">#E0E0E0</color>
+    <color name="gray_dark">#757575</color>
+    <color name="accent">#4CAF50</color> <!-- Hijau cerah -->
+    <color name="danger">#D32F2F</color>
+</resources>

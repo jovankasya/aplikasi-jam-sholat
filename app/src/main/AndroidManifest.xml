@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.pengingatsholat"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ====== Permissions ====== -->
+    <!-- Internet untuk panggil API jadwal sholat -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+
+    <!-- Lokasi untuk mendapatkan kota / koordinat user -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- Agar alarm tetap aktif walau device di-restart -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Untuk menjamin AlarmManager bisa membangunkan device -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- ====== Application ====== -->
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Pengingatsholat"
+        tools:targetApi="31">
+
+        <!-- MainActivity sebagai entry point -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Receiver untuk alarm sholat -->
+        <receiver
+            android:name=".service.AlarmReceiver"
+            android:exported="true" />
+
+        <!-- Receiver untuk menangani reboot device -->
+        <receiver
+            android:name=".service.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <!-- (Opsional) Jika menggunakan Service untuk alarm -->
+        <!--
+        <service
+            android:name=".service.AlarmService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        -->
+
+        <!-- Metadata ViewBinding (tidak selalu wajib, tapi aman ditambahkan) -->
+        <meta-data
+            android:name="android.databinding.EnableViewBinding"
+            android:value="true" />
+    </application>
+
+</manifest>
